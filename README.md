@@ -6,6 +6,8 @@ Welcome to my engineering project portfolio. I am a Motorsports Engineering stud
 
 This GitHub Pages site showcases my work across MATLAB, Simulink, Python, and 3D CAD, with applications in suspension modeling, aerodynamics, optimization, and racing data analysis.
 
+
+
 ⭐ Technical Skills
 
     MATLAB / Simulink – regression modeling, optimization, correlation analysis, quarter-car modeling
@@ -17,6 +19,8 @@ This GitHub Pages site showcases my work across MATLAB, Simulink, Python, and 3D
     Motorsports Engineering – suspension tuning, aero balance, lap-time modeling
     
     Manufacturing – CNC machining, composites, additive manufacturing
+
+    
 
 📂 Repository Structure
 
@@ -33,6 +37,8 @@ python/
 
 cad/
     (coming soon)
+
+
 
 🔧 MATLAB & Simulink Highlights
 Correlation & Regression (St. Pete Practice Analysis)
@@ -58,6 +64,9 @@ MATLAB user-defined functions for aero forces, ride frequency, and suspension tr
 Full MATLAB collection:
 🔗 https://github.com/nrwalden/nrwalden.github.io/tree/main/matlab
 
+
+
+
 🐍 Python Projects (Coming Soon)
 
 This section will include engineering notebooks for:
@@ -70,14 +79,23 @@ Automation workflows
 
 Motorsports engineering analysis
 
+
+
+
 🛠️ CAD Projects (Coming Soon)
 
 Planned CAD uploads:
+
+
+
 
 📄 Resume
 
 My resume is embedded on the live website for easy viewing:
 🔗 https://nrwalden.github.io
+
+
+
 
 📬 Contact
 
