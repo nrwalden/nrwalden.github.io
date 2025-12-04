@@ -1,0 +1,39 @@
+# Multivariable Correlation & Regression – St. Petersburg Indy NXT Analysis
+
+This project analyzes practice telemetry from a St. Petersburg–style street circuit to identify which setup and environmental variables most strongly influence lap time. The goal is to build a predictive regression model to support setup decisions prior to the 2026 Firestone Grand Prix of St. Petersburg.
+
+## 📈 Objectives
+- Import, clean, and prepare telemetry data from `stpete_practice.csv`
+- Generate a **correlation matrix** and **scatterplot matrix** to visualize relationships  
+- Build a **multivariable regression model** for lap time using:
+  - Track temperature  
+  - Fuel load  
+  - Tire age  
+- Evaluate nonlinear effects through quadratic terms  
+- Generate surface + contour plots to visualize influences on lap time  
+- Identify the combination of (track_temp, tire_age) that produces the minimum lap time  
+
+(Source: *Project 2.3 PDF*, MSPE 29800, Purdue University) :contentReference[oaicite:0]{index=0}
+
+## 🛠️ MATLAB Techniques Demonstrated
+- `readtable`, `table2array`  
+- `corrcoef`, `heatmap`, `plotmatrix`  
+- `fitlm` for multivariable regression  
+- Surface & contour plotting with `surf`, `contour`  
+- Extracting optimal conditions using `min`  
+
+## 📊 Outputs
+The script produces:
+- Correlation heatmap  
+- Scatter matrix  
+- Regression output table  
+- Surface plot of predicted lap time  
+- Contour plot highlighting the minimum lap time point  
+
+## 🚗 Engineering Insight
+This project simulates real motorsports data analysis by:
+- Separating causal vs. non-causal variables (e.g., excluding avg_speed to avoid circular reasoning)
+- Analyzing setup sensitivity before race weekend
+- Delivering actionable recommendations to a crew chief
+
+A written recommendation email summarizing results is also included.
