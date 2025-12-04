@@ -1,0 +1,16 @@
+Coach,
+
+Regression analysis shows that fuel load has the largest effect on lap 
+time, followed by tire age, with track temperature playing a smaller role. 
+The model (R² ≈ 0.53) predicts a minimum lap time of ≈ 62.9 s occurring 
+around 29 °C track temp, fresh tires, and average fuel load.
+
+Recommendation: Plan qualifying runs early in the session on new tires with 
+a mid-range fuel load. Avoid heat buildup and extended tire age to maintain 
+pace consistency.
+
+Notes: Results come from practice-lap data only and exclude average speed 
+to prevent circularity. While the fit is moderate, the trends clearly show 
+the impact of tire wear and fuel mass on lap time.
+
+– Noah
