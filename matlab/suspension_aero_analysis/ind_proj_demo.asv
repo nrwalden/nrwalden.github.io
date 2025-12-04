@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Course Number: ENGR 13300
+% Semester: Spring 2025
+%
+% Description:
+%    This MATLAB script simulates suspension and aerodynamic analysis for a performance vehicle.
+%    It calculates ride frequency and suspension travel based on vehicle parameters and road input,
+%    and it estimates aerodynamic forces (downforce and drag) over a range of speeds. The tool can
+%    be used to understand how tuning parameters affect vehicle behavior, serving as an introductory
+%    tool for amateur motorsports enthusiasts or performance tuners.
+%
+% Assignment Information:
+%     Assignment:     Individual Project Demo
+%     Team ID:        LC1 - 20
+%     Author:         Noah Walden, walden28@purdue.edu
+%     Date:           4/17/2025
+%
+% Contributor:
+%     Name, login@purdue [repeat for each]
+%
+%     My contributor(s) helped me:
+%     [ ] understand the assignment expectations without
+%         telling me how they will approach it.
+%     [ ] understand different ways to think about a solution
+%         without helping me plan my solution.
+%     [ ] think through the meaning of a specific error or
+%         bug present in my code without looking at my code.
+%     Note that if you helped somebody else with their code, you
+%     have to list that person as a contributor here as well.
+%
+% Academic Integrity Statement:
+%     I have not used source code obtained from any unauthorized
+%     source, either modified or unmodified; nor have I provided
+%     another student access to my code.  The project I am
+%     submitting is my own original work.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% =====================
+%% USER INPUT SECTION
+% Prompt user for suspension and aerodynamic setup parameters
+
+disp('--- Suspension Inputs ---')
+mass = input('Enter vehicle mass (kg): ');
+spring_rate = input('Enter spring rate (N/m): ');
+damping_ratio = input('Enter damping ratio (0 to 2): ');
+road_input = input('Enter road bump height (m): ');
+
+disp('--- Aerodynamic Inputs ---')
+air_density = input('Enter air density (kg/m^3) [e.g. 1.225]: ');
+frontal_area = input('Enter frontal area (m^2): ');
+drag_coefficient = input('Enter drag coefficient (Cd): ');
+lift_coefficient = input('Enter lift coefficient (Cl): ');
+speeds = input('Enter a vector of speeds (m/s), e.g. 0:5:80: ');
+
+%% =====================
+%% ERROR CHECKS
+% Ensure inputs are physically meaningful
+
+if mass <= 0
+    error('Mass must be greater than zero.');
+end
+if spring_rate <= 0
+    error('Spring rate must be greater than zero.');
+end
+if damping_ratio < 0 || damping_ratio > 2
+    error('Damping ratio must be between 0 and 2.');
+end
+if frontal_area <= 0 || air_density <= 0
+    error('Frontal area and air density must be positive.');
+end
+if ~isvector(speeds) || any(speeds < 0)
+    error('Speeds must be a vector of non-negative values.');
+end
+
+%% =====================
+%% CALCULATIONS
+
+% Suspension System Calculations
+ride_freq = ind_proj_demo_calcRideFrequency(spring_rate, mass);               % Natural frequency (Hz)
+susp_travel = calcSuspensionTravel(road_input, damping_ratio); % Estimated suspension travel (m)
+
+% Aerodynamic Forces
+[downforce, drag_force] = calcAerodynamics(air_density, frontal_area, ...
+    lift_coefficient, drag_coefficient, speeds);                % Force vectors (N)
+
+%% =====================
+%% DISPLAY RESULTS
+
+% Print suspension performance
+fprintf('\n--- Suspension Analysis ---\n');
+fprintf('Ride Frequency: %.2f Hz\n', ride_freq);
+fprintf('Suspension Travel (from %.2f m bump): %.2f m\n', road_input, susp_travel);
+
+% Print aerodynamic performance with categorization using nested if
+fprintf('\n--- Aerodynamic Analysis with Notes ---\n');
+fprintf('Speed (m/s)\tDownforce (N)\tDrag Force (N)\tNote\n');
+
+for i = 1:length(speeds)
+    % Categorize aerodynamic downforce
+    if downforce(i) > 500
+        note = 'High DF';
+    elseif downforce(i) > 200
+        note = 'Medium DF';
+    else
+        note = 'Low DF';
+    end
+    % Print formatted table row
+    fprintf('%8.2f\t%13.2f\t%13.2f\t%s\n', speeds(i), downforce(i), drag_force(i), note);
+end
+
+%% =====================
+%% PLOT RESULTS
+
+% Generate plot of aerodynamic forces vs. speed
+figure;
+plot(speeds, downforce, 'b-o', speeds, drag_force, 'r-s');
+xlabel('Speed (m/s)');
+ylabel('Force (N)');
+title('Aerodynamic Forces vs. Speed');
+legend('Downforce', 'Drag Force');
+grid on;
