@@ -1,0 +1,44 @@
+# Quadratic Regression for Rear Stagger Optimization – Pavement Midget Racing
+
+This project builds predictive single-variable quadratic models to determine the optimal rear-stagger setting (RS) for qualifying at Lucas Oil Indianapolis Raceway Park.
+
+Rear stagger is defined as:
+**RS = (CRR − CLR)**  
+The goal is to model how RS affects lap time and identify the stagger that produces the fastest lap.
+
+(Source: *Project 2.2 PDF*, MSPE 29800, Purdue University) :contentReference[oaicite:2]{index=2}
+
+## 🎯 Objectives
+### Part 1 — 3 Data Points
+- Fit a quadratic model using a Vandermonde matrix  
+- Predict lap times over 0–5 in of stagger  
+- Identify the optimal stagger via vertex of the parabola  
+- Plot the data, prediction curve, and optimal point  
+
+### Part 2 — 7 Data Points
+- Use the Moore–Penrose pseudoinverse to solve for coefficients  
+- Compute **R²** and **Adjusted R²**  
+- Generate predictions + plot  
+- Extract the optimal stagger from the updated model  
+
+## 🛠️ MATLAB Techniques Demonstrated
+- Matrix-based regression  
+- Pseudoinverse using `pinv`  
+- Model evaluation: R², R²_adj  
+- Plotting:
+  - Predicted curve  
+  - Raw data  
+  - Optimal stagger point  
+- Use of `fprintf` for reporting results  
+
+## 📊 Outputs
+The script(s) generate:
+- Plots comparing model predictions vs. measured laps  
+- Optimal stagger value and predicted lap time  
+- Coefficient of determination (Part 2)  
+
+## 🚗 Engineering Insight
+Rear stagger tuning is critical for oval performance. This project:
+- Demonstrates how small changes in tire circumference affect corner entry, rotation, and straight-line stability  
+- Builds a data-driven method for choosing qualifying setup  
+- Includes a recommendation email to the crew chief
