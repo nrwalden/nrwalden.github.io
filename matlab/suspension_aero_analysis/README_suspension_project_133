@@ -1,0 +1,17 @@
+## Performance Vehicle Suspension & Aerodynamic Analysis (ENGR 133 Individual Project)
+
+This project simulates suspension and aerodynamic behavior for a performance vehicle using a set of
+MATLAB user-defined functions (UDFs) and a demo script.
+
+**Key pieces:**
+
+- `ind_proj_demo.m` – main script that ties the analysis together
+- `calcAerodynamics` – computes lift and drag over a range of speeds using air density, frontal area,
+  lift/drag coefficients, and speed vector
+- `calcRideFrequency` – calculates ride frequency from spring rate and sprung mass
+- `calcSuspensionTravel` – estimates peak suspension travel in response to a bump input and damping ratio
+
+The goal is to give a simple engineering tool that helps understand how tuning suspension and aerodynamic
+parameters affects vehicle behavior.
+
+👉 [View files](./suspension_aero_analysis)
