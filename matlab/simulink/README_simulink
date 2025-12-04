@@ -1,0 +1,52 @@
+# Semi-Active Suspension Modeling & Control – Simulink Quarter-Car
+
+This project builds and compares passive vs. semi-active suspension systems using a quarter-car Simulink model. A PID-controlled variable damper is used to improve ride quality and stability over road disturbances.
+
+(Source: *Project 2.5 PDF*, MSPE 29800, Purdue University) :contentReference[oaicite:3]{index=3}
+
+## 🏎️ Scenario
+You are tasked with designing a semi-active suspension controller similar to MagneRide. The model uses:
+- Sprung mass = 250 kg  
+- Spring constant = 18,000 N/m  
+- Variable damping range = 800–1500 N·s/m  
+
+## 📘 Project Tasks
+
+### **Task 1 — Build Plant Model**
+- Implement the quarter-car differential equation  
+- Road input = sine wave  
+- Constant damping coefficient  
+- Output displacement x(t)  
+- Run simulation for 10 seconds  
+
+### **Task 2 — PID Controller Integration**
+- Add variable damping:  
+  **c(t) = c_min + u(t)(c_max − c_min)**  
+- Implement PID with saturation + anti-windup  
+- Compare controlled vs. uncontrolled suspension behavior  
+
+### **Task 3 — Impulse Input Response**
+- Replace sine wave with impulse  
+- Output both displacement x(t) and acceleration d²x/dt²  
+- Compare performance with/without controller  
+
+## 🛠️ Skills Demonstrated
+- Simulink modeling (integrators, subsystems, scopes)  
+- PID tuning with saturation limits  
+- Modeling dynamic systems from differential equations  
+- Comparison of passive vs. controlled systems  
+
+## 📊 Outputs
+- Time-domain displacement and acceleration plots  
+- Demonstration of improved damping control  
+- Simulink files:
+  - `*_task1.slx`
+  - `*_task2.slx`
+  - `*_task3.slx`
+  - `const.m` (parameter definitions)
+
+## 🚗 Engineering Insight
+This project mimics real suspension control development:
+- Shows how variable damping impacts comfort + stability  
+- Demonstrates ECU-style control signals  
+- Highlights tradeoffs between responsiveness and overshoot  
