@@ -1,0 +1,44 @@
+# Aerodynamic Wing Optimization – GT3 Rear Wing Configuration
+
+This project uses nonlinear optimization to identify the ideal rear-wing fore-aft position (x) and height (z) for a GT3 car at Road America. The objective is to minimize lap time while satisfying straight-line cooling/load constraints.
+
+## 🏁 Scenario
+As the GT3 engineering intern, you must deliver an optimal wing configuration before qualifying. The model uses nonlinear relationships between:
+- Lift coefficient (CL)
+- Drag coefficient (CD)
+- Downforce saturation benefit
+- Drag penalty
+- Straight-line cooling load constraint
+
+(Source: *Project 2.4 PDF* MSPE 29800, Purdue University) :contentReference[oaicite:1]{index=1}
+
+## 🎯 Objectives
+- Implement aerodynamic coefficient models for CL(x,z) and CD(x,z)
+- Create a lap-time proxy function T(x,z)
+- Implement a load-cap constraint LC(x,z) ≤ 0.70
+- Use MATLAB’s **fmincon** to find optimal x and z
+- Visualize the objective and constraints on a contour map
+
+## 🛠️ MATLAB Techniques Demonstrated
+- Nonlinear function definition
+- Constrained optimization using:
+  - `fmincon`
+  - Bounds (`lb`, `ub`)
+  - Functional constraints
+- Visualization of:
+  - Objective function
+  - Constraint boundaries
+  - Optimal configuration point
+
+## 📊 Outputs
+The script returns:
+- Optimal fore-aft position (mm)
+- Optimal wing height (mm)
+- Predicted minimum lap time
+- Contour plot showing the feasible region vs. objective landscape
+
+## 🚗 Engineering Insight
+This project mimics GT and prototype aerodynamic workflow:
+- Tradeoff between straight-line cooling vs. cornering downforce
+- Sensitivity of performance to millimeter-scale wing adjustments
+- Visualizing race-engineering decision spaces
