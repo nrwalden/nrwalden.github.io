@@ -1,0 +1,16 @@
+Subject: Qualifying Rear Stagger Recommendation
+
+Coach,
+
+Based on a quadratic fit to all seven sessions, the predicted minimum lap time
+occurs at a rear stagger of ~2.15 in (≈21.75 s). The model explains ~91% of the
+variance (R²≈0.91; adjusted R²≈0.86), so it's a strong single-variable fit.
+
+Recommendation: start qualifying at RS = 2.15 in.
+
+Caveats: If track temp rises noticeably or pressures build more than observed in
+practice, effective stagger can increase; we should be ready to trim ~0.1–0.2 in.
+Conversely, if the track cools or grip falls, consider adding ~0.1 in to keep the
+car rotating center-off. Verify hot pressures before the run.
+
+– Noah
